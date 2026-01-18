@@ -1,5 +1,5 @@
 ### Destination Rule Testing 
-
+```
 === LOAD BALANCING RESULT HEALTH (Pod IP) ===
 10.244.0.113: 13 requests
 10.244.0.115: 13 requests
@@ -25,10 +25,10 @@ v2: 19 requests
 
 Errors: 5
 === Test Finished ===
-
+```
 
 ### Virtual Service Testing
-
+```
 === LOAD BALANCING RESULT HEALTH (Pod IP) ===
 10.244.0.113: 22 requests
 10.244.0.111: 22 requests
@@ -54,3 +54,4 @@ v2: 4 requests
 
 Errors: 0
 === Test Finished ===
+```
