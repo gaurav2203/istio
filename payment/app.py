@@ -10,7 +10,7 @@ app = FastAPI()
 VERSION = os.environ["VERSION"]
 POD_IP = os.environ.get("POD_IP", "unknown")
 
-AUTH_SERVICE_URL = "http://auth.prod.svc.cluster.local"
+AUTH_SERVICE_URL = "http://auth:8080"
 
 @app.get("/health")
 def health():

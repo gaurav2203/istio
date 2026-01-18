@@ -1,0 +1,1 @@
+kubectl run lb-tester --rm -it --image=python:3.11-bullseye --restart=Never --command -- bash

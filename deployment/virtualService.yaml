@@ -1,0 +1,47 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: auth-vs
+spec:
+  hosts:
+  - auth
+  http:
+  - timeout: 5s
+    retries:
+      attempts: 2
+      perTryTimeout: 2s
+      retryOn: 5xx,connect-failure
+    route:
+    - destination:
+        host: auth
+        subset: v1
+      weight: 90
+    - destination:
+        host: auth
+        subset: v2
+      weight: 10
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: payment-vs
+spec:
+  hosts:
+  - payment
+  http:
+  - timeout: 5s
+    retries:
+      attempts: 2
+      perTryTimeout: 2s
+      retryOn: 5xx,connect-failure
+    route:
+    - destination:
+        host: payment
+        subset: v1
+      weight: 90
+    - destination:
+        host: payment
+        subset: v2
+      weight: 10
